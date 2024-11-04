@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+use mysqli;
+
 class DBConnection
 {
     public function connect()

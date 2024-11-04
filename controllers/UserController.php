@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use app\core\BaseController;
 use app\models\UserModel;
+use app\core\DBConnection;
+use app\models\ProductModel;
 
 class UserController extends BaseController
 {
