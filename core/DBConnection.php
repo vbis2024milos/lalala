@@ -6,7 +6,7 @@ use mysqli;
 
 class DBConnection
 {
-    public function connect()
+    public function connect() : mysqli
     {
         $mysqli = new mysqli("localhost", "root", "", "vbis");
 
