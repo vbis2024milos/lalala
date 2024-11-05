@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'petar/vbis2024',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'f4c408034a1c510248dbf0d5d5e76cb57f6ca296',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'petar/vbis2024' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'f4c408034a1c510248dbf0d5d5e76cb57f6ca296',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
