@@ -15,4 +15,9 @@ class ProductModel extends BaseModel
     {
         return "products";
     }
+
+    public function readColumns()
+    {
+        return ["name", "description"];
+    }
 }
