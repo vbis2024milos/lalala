@@ -26,4 +26,12 @@ class ProductModel extends BaseModel
     {
         return ["name", "description"];
     }
+
+    public function validationRules(): array
+    {
+        return [
+            "name" => [self::RULE_REQUIRED],
+            "description" => [self::RULE_REQUIRED],
+        ];
+    }
 }

@@ -1,12 +1,3 @@
-<?php
-
-use app\models\ProductModel;
-
-/** @var $params ProductModel
- */
-
-?>
-
 <div class="card">
     <form action="/processUpdate" method="post">
         <input type="hidden" name="product_id" value="<?php echo $params->product_id ?>">
