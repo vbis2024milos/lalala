@@ -25,4 +25,9 @@ class UserModel extends BaseModel{
     {
         return ["email", "first_name", "last_name","user_id"];
     }
+
+    public function editColumns()
+    {
+        return ["email", "first_name", "last_name"];
+    }
 }

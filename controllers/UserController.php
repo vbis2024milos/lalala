@@ -33,4 +33,13 @@ class UserController extends BaseController
 
         $this->view->render('updateUser', 'main', $model);
     }
+
+    public function processUpdateUser()
+    {
+        $model = new UserModel();
+        $model->mapData($_POST);
+        $model->update("where user_id = $model->user_id");
+
+        header("location:" . "/users");
+    }
 }
