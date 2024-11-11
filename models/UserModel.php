@@ -8,9 +8,9 @@ use app\core\DBConnection;
 class UserModel extends BaseModel{
     public int $user_id;
 
-    public string $email;
-    public string $first_name;
-    public string $last_name;
+    public string $email = '';
+    public string $first_name = "";
+    public string $last_name = "";
 
     public function tableName()
     {

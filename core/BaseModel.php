@@ -104,4 +104,27 @@ abstract class BaseModel
 
         $this->con->query($query);
     }
+
+    public function validate()
+    {
+        $allRules = $this->validationRules();
+
+        foreach ($allRules as $attribute => $rules) {
+            $value = $this->{$attribute};
+
+            foreach ($rules as $rule) {
+                if ($rule == self::RULE_REQUIRED) {
+                    if (!$value) {
+                        $this->errors[$attribute][] = "This field is required";
+                    }
+                }
+
+                if ($rule == self::RULE_EMAIL) {
+                    if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
+                        $this->errors[$attribute][] = "Email must be in Email format";
+                    }
+                }
+            }
+        }
+    }
 }

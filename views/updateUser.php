@@ -15,6 +15,10 @@
                         <label for="example-text-input" class="form-control-label">Email address</label>
                         <input class="form-control" type="email" name="email" value="<?php echo $params->email ?>"
                                onfocus="focused(this)" onfocusout="defocused(this)">
+                        <?php
+                            $form = new \app\core\Form();
+                            $form->valid($params,"email");
+                        ?>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -22,6 +26,9 @@
                         <label for="example-text-input" class="form-control-label">First name</label>
                         <input class="form-control" type="text" name="first_name" value="<?php echo $params->first_name ?>"
                                onfocus="focused(this)" onfocusout="defocused(this)">
+                        <?php
+                            $form->valid($params,"first_name");
+                        ?>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -29,6 +36,9 @@
                         <label for="example-text-input" class="form-control-label">Last name</label>
                         <input class="form-control" type="text" name="last_name" value="<?php echo $params->last_name ?>"
                                onfocus="focused(this)" onfocusout="defocused(this)">
+                        <?php
+                            $form->valid($params,"last_name");
+                        ?>
                     </div>
                 </div>
             </div>

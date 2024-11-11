@@ -8,8 +8,8 @@ use app\core\DBConnection;
 class ProductModel extends BaseModel
 {
     public int $product_id;
-    public string $name;
-    public string $description;
+    public string $name = '';
+    public string $description = '';
     public int $price;
 
     public function tableName()
