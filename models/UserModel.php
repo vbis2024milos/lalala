@@ -5,8 +5,9 @@ namespace app\models;
 use app\core\BaseModel;
 use app\core\DBConnection;
 
-class UserModel extends BaseModel
-{
+class UserModel extends BaseModel{
+    public int $user_id;
+
     public string $email;
     public string $first_name;
     public string $last_name;
@@ -18,5 +19,15 @@ class UserModel extends BaseModel
     public function tableName()
     {
         return "user";
+    }
+
+    public function readColumns()
+    {
+        return ["email", "first_name", "last_name","user_id"];
+    }
+
+    public function editColumns()
+    {
+        return ["email", "first_name", "last_name"];
     }
 }
