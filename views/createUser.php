@@ -1,10 +1,9 @@
 <div class="card">
-    <form action="/processUpdateUser" method="post">
-        <input type="hidden" name="user_id" value="<?php echo $params->user_id ?>">
+    <form action="/processCreateUser" method="post">
         <div class="card-header pb-0">
             <div class="d-flex align-items-center">
-                <p class="mb-0">Edit Profile</p>
-                <button class="btn btn-primary btn-sm ms-auto" type="submit">Save</button>
+                <p class="mb-0">Create new user</p>
+                <button class="btn btn-success btn-sm ms-auto" type="submit">Create</button>
             </div>
         </div>
         <div class="card-body">

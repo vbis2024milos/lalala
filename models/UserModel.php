@@ -8,13 +8,9 @@ use app\core\DBConnection;
 class UserModel extends BaseModel{
     public int $user_id;
 
-    public string $email;
-    public string $first_name;
-    public string $last_name;
-
-    public function __construct()
-    {
-    }
+    public string $email = '';
+    public string $first_name = "";
+    public string $last_name = "";
 
     public function tableName()
     {
@@ -29,5 +25,14 @@ class UserModel extends BaseModel{
     public function editColumns()
     {
         return ["email", "first_name", "last_name"];
+    }
+
+    public function validationRules(): array
+    {
+        return [
+            "email" => [self::RULE_REQUIRED, self::RULE_EMAIL],
+            "first_name" => [self::RULE_REQUIRED],
+            "last_name" => [self::RULE_REQUIRED],
+        ];
     }
 }

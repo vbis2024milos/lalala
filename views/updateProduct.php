@@ -1,12 +1,3 @@
-<?php
-
-use app\models\ProductModel;
-
-/** @var $params ProductModel
- */
-
-?>
-
 <div class="card">
     <form action="/processUpdate" method="post">
         <input type="hidden" name="product_id" value="<?php echo $params->product_id ?>">
@@ -24,6 +15,10 @@ use app\models\ProductModel;
                         <label for="example-text-input" class="form-control-label">Description</label>
                         <input class="form-control" type="text" name="description" value="<?php echo $params->description ?>"
                                onfocus="focused(this)" onfocusout="defocused(this)">
+                        <?php
+                            $form = new \app\core\Form();
+                            $form->valid($params,"description");
+                        ?>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -31,6 +26,9 @@ use app\models\ProductModel;
                         <label for="example-text-input" class="form-control-label">Name</label>
                         <input class="form-control" type="text" name="name" value="<?php echo $params->name ?>"
                                onfocus="focused(this)" onfocusout="defocused(this)">
+                        <?php
+                            $form->valid($params,"name");
+                        ?>
                     </div>
                 </div>
             </div>

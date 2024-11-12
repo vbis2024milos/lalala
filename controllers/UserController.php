@@ -4,8 +4,6 @@ namespace app\controllers;
 
 use app\core\BaseController;
 use app\models\UserModel;
-use app\core\DBConnection;
-use app\models\ProductModel;
 
 class UserController extends BaseController
 {
@@ -38,7 +36,37 @@ class UserController extends BaseController
     {
         $model = new UserModel();
         $model->mapData($_POST);
+
+        $model->validate();
+
+        if ($model->errors) {
+            $this->view->render('updateUser', 'main', $model);
+            exit;
+        }
+
         $model->update("where user_id = $model->user_id");
+
+        header("location:" . "/users");
+    }
+
+    public function createUser()
+    {
+        $this->view->render('createUser', 'main', new UserModel());
+    }
+
+    public function processCreateUser()
+    {
+        $model = new UserModel();
+        $model->mapData($_POST);
+
+        $model->validate();
+
+        if ($model->errors) {
+            $this->view->render('createUser', 'main', $model);
+            exit;
+        }
+
+        $model->insert();
 
         header("location:" . "/users");
     }
