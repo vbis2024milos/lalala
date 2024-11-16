@@ -41,4 +41,9 @@ class ProductController extends BaseController
 
         $this->view->render('products', 'main', $result);
     }
+
+    public function accessRole(): array
+    {
+        return ['Administrator'];
+    }
 }

@@ -7,7 +7,7 @@ use mysqli;
 abstract class BaseModel
 {
     private DBConnection $db;
-    private mysqli $con;
+    public mysqli $con;
 
     public const RULE_EMAIL = "rule_email";
     public const RULE_REQUIRED = "rule_required";

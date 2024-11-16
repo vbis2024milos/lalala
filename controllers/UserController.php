@@ -70,4 +70,9 @@ class UserController extends BaseController
 
         header("location:" . "/users");
     }
+
+    public function accessRole(): array
+    {
+        return ['Administrator'];
+    }
 }
