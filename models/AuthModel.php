@@ -20,7 +20,7 @@ class AuthModel extends BaseModel
         return ['user_id', 'email', 'password'];
     }
 
-    public function editColumns()
+    public function editColumns(): array
     {
         return ['email', 'password'];
     }

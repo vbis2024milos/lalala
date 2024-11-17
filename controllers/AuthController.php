@@ -73,11 +73,7 @@ class AuthController extends BaseController
 
         $loginPassword = $model->password;
 
-        var_dump($loginPassword);
-
         $model->one("where email = '$model->email'");
-
-        var_dump($model->password);
 
         $verifyResult = password_verify($loginPassword, $model->password);
 
