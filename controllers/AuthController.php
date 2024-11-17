@@ -81,9 +81,6 @@ class AuthController extends BaseController
 
         $verifyResult = password_verify($loginPassword, $model->password);
 
-        var_dump($verifyResult);
-        exit();
-
         if ($verifyResult) {
             $sessionUserModel = new SessionUserModel();
             $sessionUserModel->email = $model->email;
