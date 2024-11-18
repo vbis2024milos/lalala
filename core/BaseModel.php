@@ -6,18 +6,20 @@ use mysqli;
 
 abstract class BaseModel
 {
-    private DBConnection $db;
-    public mysqli $con;
-
     public const RULE_EMAIL = "rule_email";
     public const RULE_REQUIRED = "rule_required";
+
     public $errors;
+
+    private DbConnection $db;
+    public mysqli $con;
 
     public function __construct()
     {
-        $this->db = new DBConnection();
+        $this->db = new DbConnection();
         $this->con = $this->db->connect();
     }
+
     abstract public function tableName();
 
     abstract public function readColumns();
@@ -30,22 +32,23 @@ abstract class BaseModel
     {
         $tableName = $this->tableName();
         $columns = $this->readColumns();
-        $query = "select " . implode(',', $columns) . " from $tableName $where limit 1";
+
+        $query = "select " . implode(',', $columns) . " from  $tableName $where limit 1";
 
         $dbResult = $this->con->query($query);
         $result = $dbResult->fetch_assoc();
 
-        if($result != null){
+        if ($result != null) {
             $this->mapData($result);
         }
-
     }
 
-    public function all($where)
+    public function all($where): array
     {
         $tableName = $this->tableName();
         $columns = $this->readColumns();
-        $query = "select " . implode(',', $columns) . " from $tableName $where";
+
+        $query = "select " . implode(',', $columns) . " from  $tableName $where";
 
         $dbResult = $this->con->query($query);
 
@@ -56,17 +59,6 @@ abstract class BaseModel
         }
 
         return $resultArray;
-
-    }
-
-    public function mapData($data)
-    {
-        if ($data != null) {
-            foreach ($data as $key => $value) {
-                if (property_exists($this, $key))
-                    $this->{$key} = $value;
-            }
-        }
     }
 
     public function update($where)
@@ -96,13 +88,24 @@ abstract class BaseModel
         $columns = $this->editColumns();
         $columnsHelper = array_map(fn($attr) => ":$attr", $columns);
 
-        $query = "INSERT $tableName ( " . implode(',', $columns) . " ) values ( " . implode(',', $columnsHelper) . ")";
+        $query = "insert into $tableName (" . implode(",", $columns) . ") values (" . implode(",", $columnsHelper) . ")";
 
         foreach ($columns as $attribute) {
             $query = str_replace(":$attribute", is_string($this->{$attribute}) ? '"' . $this->{$attribute} . '"' : $this->{$attribute}, $query);
         }
 
         $this->con->query($query);
+    }
+
+    public function mapData($data)
+    {
+        if ($data != null) {
+            foreach ($data as $key => $value) {
+                if (property_exists($this, $key)) {
+                    $this->{$key} = $value;
+                }
+            }
+        }
     }
 
     public function validate()

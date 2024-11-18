@@ -6,21 +6,21 @@ use app\core\BaseModel;
 
 class AuthModel extends BaseModel
 {
-    public int $user_id;
+    public int $id;
     public string $email = '';
     public string $password = '';
 
     public function tableName(): string
     {
-        return 'user';
+        return 'users';
     }
 
     public function readColumns(): array
     {
-        return ['user_id', 'email', 'password'];
+        return ['id', 'email', 'password'];
     }
 
-    public function editColumns(): array
+    public function editColumns()
     {
         return ['email', 'password'];
     }

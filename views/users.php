@@ -2,7 +2,7 @@
     <div class="card-header pb-0">
         <div class="d-flex align-items-center">
             <h6>Users</h6>
-            <a class="btn btn-primary btn-sm ms-auto" href="/createUser">New</a>
+            <a class="btn btn-primary btn-sm ms-auto" href="/createUser">Create</a>
         </div>
     </div>
     <div class="card-body px-0 pt-0 pb-2">
@@ -31,7 +31,7 @@
                     echo "</div>";
                     echo " </td>";
                     echo "<td class='align-middle'>";
-                    echo "<a href='/updateUser?user_id=$user[user_id]' target='_blank' class='text-secondary font-weight-bold text-xs' data-toggle='tooltip' data-original-title='Edit user'>";
+                    echo "<a href='/updateUser?id=$user[id]' target='_blank' class='text-secondary font-weight-bold text-xs' data-toggle='tooltip' data-original-title='Edit user'>";
                     echo "Edit";
                     echo "</a>";
                     echo " </td>";

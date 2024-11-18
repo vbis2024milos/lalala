@@ -41,8 +41,8 @@ class AuthController extends BaseController
 
         $userRoleModel = new UserRoleModel();
 
-        $userRoleModel->user_id = $model->user_id;
-        $userRoleModel->role_id = $roleModel->role_id;
+        $userRoleModel->id_user = $model->id;
+        $userRoleModel->id_role = $roleModel->id;
 
         $userRoleModel->insert();
 

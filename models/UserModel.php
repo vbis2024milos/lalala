@@ -3,26 +3,27 @@
 namespace app\models;
 
 use app\core\BaseModel;
-use app\core\DBConnection;
+use app\core\DbConnection;
 
-class UserModel extends BaseModel{
-    public int $user_id;
+class UserModel extends BaseModel
+{
+    public int $id;
 
     public string $email = '';
-    public string $first_name = "";
-    public string $last_name = "";
+    public string $first_name = '';
+    public string $last_name = '';
 
-    public function tableName()
+    public function tableName(): string
     {
-        return "user";
+        return "users";
     }
 
-    public function readColumns()
+    public function readColumns(): array
     {
-        return ["email", "first_name", "last_name","user_id"];
+        return ["id", "email", "first_name", "last_name"];
     }
 
-    public function editColumns()
+    public function editColumns(): array
     {
         return ["email", "first_name", "last_name"];
     }

@@ -1,10 +1,19 @@
+<?php
+
+use app\models\UserModel;
+
+/** @var $params UserModel
+ */
+
+?>
+
 <div class="card">
     <form action="/processUpdateUser" method="post">
-        <input type="hidden" name="user_id" value="<?php echo $params->user_id ?>">
+        <input type="hidden" name="id" value="<?php echo $params->id ?>">
         <div class="card-header pb-0">
             <div class="d-flex align-items-center">
                 <p class="mb-0">Edit Profile</p>
-                <button class="btn btn-primary btn-sm ms-auto" type="submit">Save</button>
+                <button class="btn btn-success btn-sm ms-auto" type="submit">Save</button>
             </div>
         </div>
         <div class="card-body">
@@ -15,10 +24,6 @@
                         <label for="example-text-input" class="form-control-label">Email address</label>
                         <input class="form-control" type="email" name="email" value="<?php echo $params->email ?>"
                                onfocus="focused(this)" onfocusout="defocused(this)">
-                        <?php
-                            $form = new \app\core\Form();
-                            $form->valid($params,"email");
-                        ?>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -26,9 +31,6 @@
                         <label for="example-text-input" class="form-control-label">First name</label>
                         <input class="form-control" type="text" name="first_name" value="<?php echo $params->first_name ?>"
                                onfocus="focused(this)" onfocusout="defocused(this)">
-                        <?php
-                            $form->valid($params,"first_name");
-                        ?>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -36,9 +38,6 @@
                         <label for="example-text-input" class="form-control-label">Last name</label>
                         <input class="form-control" type="text" name="last_name" value="<?php echo $params->last_name ?>"
                                onfocus="focused(this)" onfocusout="defocused(this)">
-                        <?php
-                            $form->valid($params,"last_name");
-                        ?>
                     </div>
                 </div>
             </div>

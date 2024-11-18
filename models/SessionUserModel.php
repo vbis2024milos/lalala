@@ -6,8 +6,8 @@ use app\core\BaseModel;
 
 class SessionUserModel extends BaseModel
 {
-    public int $user_role_id;
-    public int $user_id;
+    public int $id;
+    public int $id_user;
     public  $first_name;
     public $last_name;
     public string $email;
@@ -15,10 +15,10 @@ class SessionUserModel extends BaseModel
 
     public function getSessionData()
     {
-        $query = "select user.user_id , user.first_name, user.last_name, user.email, role.name as role from user_role
-left join user on user_role.user_id = user.id
-left join role on user_role.role_id = role.id
-where user.email = '$this->email'";
+        $query = "select u.id as id_user, u.first_name, u.last_name, u.email, r.name as role from user_roles ur
+left join users u on ur.id_user = u.id
+left join roles r on ur.id_role = r.id
+where u.email = '$this->email'";
 
         $dbResult = $this->con->query($query);
 

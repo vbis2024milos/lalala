@@ -4,9 +4,9 @@ namespace app\core;
 
 use mysqli;
 
-class DBConnection
+class DbConnection
 {
-    public function connect() : mysqli
+    public function connect()
     {
         $mysqli = new mysqli("localhost", "root", "", "vbis");
 

@@ -7,30 +7,30 @@ use app\core\BaseModel;
 
 class UserRoleModel extends BaseModel
 {
-    public int $user_role_id;
-    public int $user_id;
-    public int $role_id;
+    public int $id;
+    public int $id_user;
+    public int $id_role;
 
     public function tableName()
     {
-        return 'user_role';
+        return 'user_roles';
     }
 
     public function readColumns()
     {
-        return ['user_role_id', 'user_id', 'role_id'];
+        return ['id', 'id_user', 'id_role'];
     }
 
     public function editColumns()
     {
-        return ['user_id', 'role_id'];
+        return ['id_user', 'id_role'];
     }
 
     public function validationRules()
     {
         return [
-            "user_id" => [self::RULE_REQUIRED],
-            "role_id" => [self::RULE_REQUIRED]
+            "id_user" => [self::RULE_REQUIRED],
+            "id_role" => [self::RULE_REQUIRED]
         ];
     }
 }
