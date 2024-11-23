@@ -32,5 +32,4 @@ $app->router->get("/processLogout", [AuthController::class, 'processLogout']);
 $app->router->post("/processLogin", [AuthController::class, 'processLogin']);
 
 
-
 $app->run();
