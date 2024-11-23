@@ -3,7 +3,7 @@
         'name' => 'petar/vbis2024',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'f4c408034a1c510248dbf0d5d5e76cb57f6ca296',
+        'reference' => 'df96b7714fbfe88ae4633a11154772d3987081cd',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'petar/vbis2024' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'f4c408034a1c510248dbf0d5d5e76cb57f6ca296',
+            'reference' => 'df96b7714fbfe88ae4633a11154772d3987081cd',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -3,23 +3,23 @@
 namespace app\models;
 
 use app\core\BaseModel;
-use app\core\DBConnection;
+use app\core\DbConnection;
 
 class ProductModel extends BaseModel
 {
-    public int $product_id;
+    public int $id;
     public string $name = '';
     public string $description = '';
     public int $price;
 
     public function tableName()
     {
-        return "product";
+        return "products";
     }
 
     public function readColumns()
     {
-        return ["name", "description","product_id"];
+        return ["id", "name", "description"];
     }
 
     public function editColumns()

@@ -14,7 +14,7 @@
                 <tbody>
                 <?php
 
-                foreach ($params as $product) {
+                foreach ($params as $param) {
                     echo "<tr>";
                     echo "<td>";
                     echo "<div class='d-flex px-2 py-1'>";
@@ -22,13 +22,13 @@
                     echo "<img src='../assets/img/team-2.jpg' class='avatar avatar-sm me-3' alt='user1'>";
                     echo "</div>";
                     echo "<div class='d-flex flex-column justify-content-center'>";
-                    echo "<h6 class='mb-0 text-sm'>$product[name]</h6>";
-                    echo "<p class='text-xs text-secondary mb-0'>$product[description]</p>";
+                    echo "<h6 class='mb-0 text-sm'>$param[name]</h6>";
+                    echo "<p class='text-xs text-secondary mb-0'>$param[description]</p>";
                     echo "</div>";
                     echo "</div>";
                     echo " </td>";
                     echo "<td class='align-middle'>";
-                    echo "<a href='/update?product_id=$product[product_id]' target='_blank' class='text-secondary font-weight-bold text-xs' data-toggle='tooltip' data-original-title='Edit product'>";
+                    echo "<a href='/updateProduct?id=$param[id]' target='_blank' class='text-secondary font-weight-bold text-xs' data-toggle='tooltip' data-original-title='Edit user'>";
                     echo "Edit";
                     echo "</a>";
                     echo " </td>";
