@@ -1,4 +1,8 @@
+<?php
 
+use app\core\Application;
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,14 +62,23 @@
                     <span class="nav-link-text ms-1">Users</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link " href="/login">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Login</span>
-                </a>
-            </li>
+            <?php
+            if (Application::$app->session->get('user')) {
+                echo '<li class="nav-item me-0">';
+                echo '<a class="nav-link me-2" href="/processLogout">';
+                echo '<i class="ni ni-user-run opacity-6 text-dark me-1"></i>';
+                echo 'Logout';
+                echo '</a>';
+                echo '</li>';
+            } else {
+                echo '<li class="nav-item me-0">';
+                echo '<a class="nav-link me-2" href="/login">';
+                echo '<i class="fas fa-key opacity-6 text-dark me-1"></i>';
+                echo ' Sign In';
+                echo '</a>';
+                echo '</li>';
+            }
+            ?>
             <li class="nav-item">
                 <a class="nav-link " href="/registration">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">

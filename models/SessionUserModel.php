@@ -16,8 +16,8 @@ class SessionUserModel extends BaseModel
     public function getSessionData()
     {
         $query = "select user.user_id , user.first_name, user.last_name, user.email, role.name as role from user_role
-left join user on user_role.user_id = user.id
-left join role on user_role.role_id = role.id
+left join user on user_role.user_id = user.user_id
+left join role on user_role.role_id = role.role_id
 where user.email = '$this->email'";
 
         $dbResult = $this->con->query($query);
